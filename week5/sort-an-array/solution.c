@@ -1,0 +1,17 @@
+int* sortArray(int* nums, int numsSize, int* returnSize) {
+    *returnSize = numsSize;
+    int* result = (int*)malloc(numsSize * sizeof(int));
+    for (int i = 0; i < numsSize; i++) {
+        result[i] = nums[i];
+    }
+    for (int i = 0; i < numsSize - 1; i++) {
+        for (int j = 0; j < numsSize - i - 1; j++) {
+            if (result[j] > result[j + 1]) {
+                int temp = result[j];
+                result[j] = result[j + 1];
+                result[j + 1] = temp;
+            }
+        }
+    }
+    return result;
+}
